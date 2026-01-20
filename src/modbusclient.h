@@ -27,12 +27,15 @@ public:
 signals:
     void dataReceived(double batterySoc, double loadPowerPercent, double invertorVoltage,
                       double invertorCurrent, double gridVoltage, double gridCurrent,
-                      double gridFrequency, double invertorFrequency);
+                      double gridFrequency, double invertorFrequency, double batteryTemperature,
+                      double loadPowerKw, double inverterPowerKva);
     void connectionStateChanged(bool connected);
     void registerNamesLoaded(QString batterySoc, QString loadPowerPercent,
                             QString invertorVoltage, QString invertorCurrent,
                             QString gridVoltage, QString gridCurrent,
-                            QString gridFrequency, QString invertorFrequency);
+                            QString gridFrequency, QString invertorFrequency,
+                            QString batteryTemperature, QString loadPowerKw,
+                            QString inverterPowerKva);
     
 private slots:
     void readRegisters();

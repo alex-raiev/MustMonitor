@@ -69,7 +69,10 @@ bool ModbusClient::loadConfig(const QString& configPath) {
         getRegisterName(25207),
         getRegisterName(25211),
         getRegisterName(25226),
-        getRegisterName(25225)
+        getRegisterName(25225),
+        getRegisterName(111),
+        getRegisterName(25215),
+        getRegisterName(25213)
     );
     
     return true;
@@ -166,7 +169,10 @@ void ModbusClient::readRegisters() {
             m_values.value(25207, 0.0),
             m_values.value(25211, 0.0),
             m_values.value(25226, 0.0),
-            m_values.value(25225, 0.0)
+            m_values.value(25225, 0.0),
+            m_values.value(111, 0.0),
+            m_values.value(25215, 0.0),
+            m_values.value(25213, 0.0)
         );
     }
 }

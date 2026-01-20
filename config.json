@@ -81,7 +81,7 @@
             "dataType": "UInt16",
             "isSigned": false,
             "name": "Inverter Power, kVA",
-            "scale": 0.01
+            "scale": 0.001
         },
         {
             "address": 25215,
@@ -133,10 +133,10 @@
             "scale": 1
         },
         {
-            "address": 20142,
+            "address": 25279,
             "dataType": "UInt16",
             "isSigned": false,
-            "name": "Fault / Protection Status Bitmap",
+            "name": "Arrow Flag",
             "scale": 1
         }
     ]

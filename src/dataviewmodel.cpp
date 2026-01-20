@@ -8,7 +8,8 @@ DataViewModel::DataViewModel(QObject *parent)
 
 void DataViewModel::updateData(double batterySoc, double loadPowerPercent, double invertorVoltage,
                                double invertorCurrent, double gridVoltage, double gridCurrent,
-                               double gridFrequency, double invertorFrequency) {
+                               double gridFrequency, double invertorFrequency, double batteryTemperature,
+                               double loadPowerKw, double inverterPowerKva) {
     m_batterySoc = batterySoc;
     m_loadPowerPercent = loadPowerPercent;
     m_invertorVoltage = invertorVoltage;
@@ -17,6 +18,9 @@ void DataViewModel::updateData(double batterySoc, double loadPowerPercent, doubl
     m_gridCurrent = gridCurrent;
     m_gridFrequency = gridFrequency;
     m_invertorFrequency = invertorFrequency;
+    m_batteryTemperature = batteryTemperature;
+    m_loadPowerKw = loadPowerKw;
+    m_inverterPowerKva = inverterPowerKva;
     
     emit dataChanged();
 }
@@ -24,7 +28,9 @@ void DataViewModel::updateData(double batterySoc, double loadPowerPercent, doubl
 void DataViewModel::setRegisterNames(const QString& batterySoc, const QString& loadPowerPercent,
                                      const QString& invertorVoltage, const QString& invertorCurrent,
                                      const QString& gridVoltage, const QString& gridCurrent,
-                                     const QString& gridFrequency, const QString& invertorFrequency) {
+                                     const QString& gridFrequency, const QString& invertorFrequency,
+                                     const QString& batteryTemperature, const QString& loadPowerKw,
+                                     const QString& inverterPowerKva) {
     m_batterySocName = batterySoc;
     m_loadPowerPercentName = loadPowerPercent;
     m_invertorVoltageName = invertorVoltage;
@@ -33,5 +39,8 @@ void DataViewModel::setRegisterNames(const QString& batterySoc, const QString& l
     m_gridCurrentName = gridCurrent;
     m_gridFrequencyName = gridFrequency;
     m_invertorFrequencyName = invertorFrequency;
+    m_batteryTemperatureName = batteryTemperature;
+    m_loadPowerKwName = loadPowerKw;
+    m_inverterPowerKvaName = inverterPowerKva;
     emit namesChanged();
 }

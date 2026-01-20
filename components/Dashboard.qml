@@ -11,21 +11,22 @@ Item {
         // Battery State of Charge Chart
         Item {
             Layout.fillWidth: true
-            Layout.preferredHeight: 200
-            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredHeight: 150
+            Layout.alignment: Qt.AlignLeft
 
             Canvas {
                 id: socCanvas
-                anchors.centerIn: parent
-                width: 200
-                height: 200
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                width: 150
+                height: 150
                 onPaint: {
                     var ctx = getContext("2d")
                     ctx.clearRect(0, 0, width, height)
                     var centerX = width / 2
                     var centerY = height / 2
-                    var radius = 80
-                    var lineWidth = 20
+                    var radius = 60
+                    var lineWidth = 15
                     
                     ctx.beginPath()
                     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI)
@@ -47,13 +48,13 @@ Item {
                 spacing: 5
                 Label {
                     text: Math.round(dataViewModel.batterySoc) + "%"
-                    font.pixelSize: 32
+                    font.pixelSize: 28
                     font.bold: true
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Label {
                     text: dataViewModel.batterySocName
-                    font.pixelSize: 14
+                    font.pixelSize: 12
                     color: "#666"
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -63,21 +64,22 @@ Item {
         // Load Power %
         Item {
             Layout.fillWidth: true
-            Layout.preferredHeight: 200
-            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredHeight: 150
+            Layout.alignment: Qt.AlignLeft
 
             Canvas {
                 id: loadCanvas
-                anchors.centerIn: parent
-                width: 200
-                height: 200
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                width: 150
+                height: 150
                 onPaint: {
                     var ctx = getContext("2d")
                     ctx.clearRect(0, 0, width, height)
                     var centerX = width / 2
                     var centerY = height / 2
-                    var radius = 80
-                    var lineWidth = 20
+                    var radius = 60
+                    var lineWidth = 15
                     
                     ctx.beginPath()
                     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI)
@@ -99,13 +101,13 @@ Item {
                 spacing: 5
                 Label {
                     text: Math.round(dataViewModel.loadPowerPercent) + "%"
-                    font.pixelSize: 32
+                    font.pixelSize: 28
                     font.bold: true
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Label {
                     text: dataViewModel.loadPowerPercentName
-                    font.pixelSize: 14
+                    font.pixelSize: 12
                     color: "#666"
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -259,6 +261,56 @@ Item {
                         color: "#666"
                     }
                 }
+            }
+        }
+    }
+
+    // Right side column
+    Column {
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.margins: 20
+        spacing: 30
+        
+        Column {
+            spacing: 5
+            Label {
+                text: Math.round(dataViewModel.batteryTemperature) + " °C"
+                font.pixelSize: 24
+                font.bold: true
+            }
+            Label {
+                text: dataViewModel.batteryTemperatureName
+                font.pixelSize: 12
+                color: "#666"
+            }
+        }
+        
+        Column {
+            spacing: 5
+            Label {
+                text: dataViewModel.loadPowerKw.toFixed(2) + " kW"
+                font.pixelSize: 24
+                font.bold: true
+            }
+            Label {
+                text: dataViewModel.loadPowerKwName
+                font.pixelSize: 12
+                color: "#666"
+            }
+        }
+        
+        Column {
+            spacing: 5
+            Label {
+                text: dataViewModel.inverterPowerKva.toFixed(2) + " kVA"
+                font.pixelSize: 24
+                font.bold: true
+            }
+            Label {
+                text: dataViewModel.inverterPowerKvaName
+                font.pixelSize: 12
+                color: "#666"
             }
         }
     }
