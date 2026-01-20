@@ -1,0 +1,143 @@
+{
+    "modbus": {
+        "deviceId": 4,
+        "host": "192.168.1.43",
+        "pollInterval": 5000,
+        "port": 502
+    },
+    "registers": [
+        {
+            "address": 25205,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Battery Voltage, V",
+            "scale": 0.1
+        },
+        {
+            "address": 25209,
+            "dataType": "UInt16",
+            "isSigned": true,
+            "name": "Battery Current, A",
+            "scale": 0.1
+        },
+        {
+            "address": 113,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Battery Level, %",
+            "scale": 1
+        },
+        {
+            "address": 111,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Inverter Temperature, °C",
+            "scale": 1
+        },
+        {
+            "address": 25206,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Invertor Voltage, V",
+            "scale": 0.1
+        },
+        {
+            "address": 25210,
+            "dataType": "Int16",
+            "isSigned": true,
+            "name": "Invertor Current, A",
+            "scale": 0.1
+        },
+        {
+            "address": 25207,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Grid Voltage, V",
+            "scale": 0.1
+        },
+        {
+            "address": 25211,
+            "dataType": "Int16",
+            "isSigned": true,
+            "name": "Grid Current, A",
+            "scale": 0.1
+        },
+        {
+            "address": 25225,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Invertor Frequency, Hz",
+            "scale": 0.01
+        },
+        {
+            "address": 25226,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Grid Frequency, Hz",
+            "scale": 0.01
+        },
+        {
+            "address": 25213,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Inverter Power, kVA",
+            "scale": 0.01
+        },
+        {
+            "address": 25215,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Load Power, kW",
+            "scale": 0.001
+        },
+        {
+            "address": 25216,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Load Power, %",
+            "scale": 1
+        },
+        {
+            "address": 25202,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Grid Voltage, V",
+            "scale": 1
+        },
+        {
+            "address": 25201,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Work State",
+            "scale": 1
+        },
+        {
+            "address": 20109,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Inverter Work Mode",
+            "scale": 1
+        },
+        {
+            "address": 10101,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Charger Status",
+            "scale": 1
+        },
+        {
+            "address": 20101,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Inverter Status",
+            "scale": 1
+        },
+        {
+            "address": 20142,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Fault / Protection Status Bitmap",
+            "scale": 1
+        }
+    ]
+}
