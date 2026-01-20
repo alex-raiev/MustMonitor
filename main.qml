@@ -5,7 +5,7 @@ import QtQuick.Layouts
 ApplicationWindow {
     visible: true
     width: 400
-    height: 800
+    height: 680
     title: "Must Monitor"
 
     TabBar {

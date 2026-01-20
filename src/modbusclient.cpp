@@ -161,18 +161,19 @@ void ModbusClient::readRegisters() {
     }
     
     if (m_values.size() == m_registers.size()) {
-        emit dataReceived(
-            m_values.value(113, 0.0),
-            m_values.value(25216, 0.0),
-            m_values.value(25206, 0.0),
-            m_values.value(25210, 0.0),
-            m_values.value(25207, 0.0),
-            m_values.value(25211, 0.0),
-            m_values.value(25226, 0.0),
-            m_values.value(25225, 0.0),
-            m_values.value(111, 0.0),
-            m_values.value(25215, 0.0),
-            m_values.value(25213, 0.0)
-        );
+        ModbusData data;
+        data.batterySoc = m_values.value(113, 0.0);
+        data.loadPowerPercent = m_values.value(25216, 0.0);
+        data.invertorVoltage = m_values.value(25206, 0.0);
+        data.invertorCurrent = m_values.value(25210, 0.0);
+        data.gridVoltage = m_values.value(25207, 0.0);
+        data.gridCurrent = m_values.value(25211, 0.0);
+        data.gridFrequency = m_values.value(25226, 0.0);
+        data.invertorFrequency = m_values.value(25225, 0.0);
+        data.batteryTemperature = m_values.value(111, 0.0);
+        data.loadPowerKw = m_values.value(25215, 0.0);
+        data.inverterPowerKva = m_values.value(25213, 0.0);
+        
+        m_dataQueue.push(data);
     }
 }
