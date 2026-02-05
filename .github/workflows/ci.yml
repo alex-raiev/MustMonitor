@@ -2,6 +2,8 @@ name: Build and Release
 
 on:
   push:
+    # branches:
+    #   - main
     tags:
       - 'v*'
   workflow_dispatch:
@@ -45,7 +47,7 @@ jobs:
       
       - name: Install dependencies
         run: |
-          brew install qt6 libmodbus cmake
+          brew install qt6 libmodbus cmake create-dmg
       
       - name: Build
         run: |
@@ -54,19 +56,30 @@ jobs:
           cmake -DCMAKE_PREFIX_PATH=$(brew --prefix qt6) ..
           cmake --build . -j$(sysctl -n hw.ncpu)
       
-      - name: Package
+      - name: Create App Bundle
         run: |
-          mkdir -p MustMonitor-macos
-          cp build/MustMonitor/MustMonitor MustMonitor-macos/
-          cp config.json MustMonitor-macos/
-          cp README.md MustMonitor-macos/
-          tar -czf MustMonitor-macos-x64.tar.gz MustMonitor-macos
+          mkdir -p MustMonitor.app/Contents/MacOS
+          mkdir -p MustMonitor.app/Contents/Resources
+          cp build/MustMonitorApp MustMonitor.app/Contents/MacOS/
+          cp config.json MustMonitor.app/Contents/Resources/
+          $(brew --prefix qt6)/bin/macdeployqt MustMonitor.app
+      
+      - name: Create DMG
+        run: |
+          create-dmg \
+            --volname "MustMonitor" \
+            --window-pos 200 120 \
+            --window-size 600 400 \
+            --icon-size 100 \
+            --app-drop-link 450 185 \
+            MustMonitor-macos-x64.dmg \
+            MustMonitor.app
       
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: MustMonitor-macos-x64
-          path: MustMonitor-macos-x64.tar.gz
+          path: MustMonitor-macos-x64.dmg
 
   build-windows:
     runs-on: windows-latest
@@ -118,7 +131,7 @@ jobs:
         with:
           files: |
             MustMonitor-linux-x64/MustMonitor-linux-x64.tar.gz
-            MustMonitor-macos-x64/MustMonitor-macos-x64.tar.gz
+            MustMonitor-macos-x64/MustMonitor-macos-x64.dmg
             MustMonitor-windows-x64/MustMonitor-windows-x64.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
