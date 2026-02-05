@@ -28,6 +28,16 @@ ApplicationWindow {
         Dashboard {}
         Charts {}
         Logs {}
-        Settings {}
+        Item {
+            anchors.fill: parent
+            Settings {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.topMargin: 100
+                anchors.leftMargin: 15
+                anchors.rightMargin: 15
+            }
+        }
     }
 }

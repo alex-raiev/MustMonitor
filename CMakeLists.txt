@@ -39,3 +39,11 @@ qt_add_qml_module(MustMonitorApp
 target_include_directories(MustMonitorApp PRIVATE ${MODBUS_INCLUDE_DIRS})
 target_link_directories(MustMonitorApp PRIVATE /usr/local/lib)
 target_link_libraries(MustMonitorApp PRIVATE Qt6::Core Qt6::Quick Qt6::Network ${MODBUS_LIBRARIES})
+
+install(TARGETS MustMonitorApp
+    RUNTIME DESTINATION bin
+    BUNDLE DESTINATION .
+)
+
+install(FILES config.json DESTINATION share/mustmonitor)
+install(FILES README.md DESTINATION share/doc/mustmonitor)
