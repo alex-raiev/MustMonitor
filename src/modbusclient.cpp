@@ -157,7 +157,7 @@ void ModbusClient::readRegisters() {
         qDebug() << "response: addr=" << reg.address << reg.name 
                  << "raw=" << value << "scaled=" << scaledValue;
         
-        QThread::msleep(100);
+        QThread::msleep(150);
     }
     
     if (m_values.size() == m_registers.size()) {
@@ -173,6 +173,15 @@ void ModbusClient::readRegisters() {
         data.batteryTemperature = m_values.value(111, 0.0);
         data.loadPowerKw = m_values.value(25215, 0.0);
         data.inverterPowerKva = m_values.value(25213, 0.0);
+        data.workState = static_cast<int>(m_values.value(25201, 0.0));
+        data.arrowFlag = static_cast<int>(m_values.value(25279, 0.0));
+        data.batteryChargingState = static_cast<int>(m_values.value(15203, 0.0));
+        data.chargerWorkState = static_cast<int>(m_values.value(15201, 0.0));
+        data.mpptState = static_cast<int>(m_values.value(15202, 0.0));
+        data.inverterRelayState = static_cast<int>(m_values.value(25237, 0.0));
+        data.gridRelayState = static_cast<int>(m_values.value(25238, 0.0));
+        data.loadRelayState = static_cast<int>(m_values.value(25239, 0.0));
+        data.dcRelayState = static_cast<int>(m_values.value(25241, 0.0));
         
         m_dataQueue.push(data);
     }

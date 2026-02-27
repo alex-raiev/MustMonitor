@@ -2,7 +2,7 @@
     "modbus": {
         "deviceId": 4,
         "host": "127.0.0.1",
-        "pollInterval": 7000,
+        "pollInterval": 6000,
         "port": 502
     },
     "registers": [
@@ -112,31 +112,94 @@
             "scale": 1
         },
         {
-            "address": 20109,
-            "dataType": "UInt16",
-            "isSigned": false,
-            "name": "Inverter Work Mode",
-            "scale": 1
-        },
-        {
-            "address": 10101,
-            "dataType": "UInt16",
-            "isSigned": false,
-            "name": "Charger Status",
-            "scale": 1
-        },
-        {
-            "address": 20101,
-            "dataType": "UInt16",
-            "isSigned": false,
-            "name": "Inverter Status",
-            "scale": 1
-        },
-        {
             "address": 25279,
             "dataType": "UInt16",
             "isSigned": false,
             "name": "Arrow Flag",
+            "scale": 1
+        },
+        {
+            "address": 15203,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Battery Charging State",
+            "scale": 1
+        },
+        {
+            "address": 15201,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Charger Work State",
+            "scale": 1
+        },
+        {
+            "address": 15202,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "MPPT State",
+            "scale": 1
+        },
+        {
+            "address": 25237,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Inverter Relay State",
+            "scale": 1
+        },
+        {
+            "address": 25238,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Grid Relay State",
+            "scale": 1
+        },
+        {
+            "address": 25239,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Load Relay State",
+            "scale": 1
+        },
+        {
+            "address": 25241,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "DC Relay State",
+            "scale": 1
+        },
+        {
+            "address": 25261,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Error Message 1",
+            "scale": 1
+        },
+        {
+            "address": 25262,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Error Message 2",
+            "scale": 1
+        },
+        {
+            "address": 25263,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Error Message 3",
+            "scale": 1
+        },
+        {
+            "address": 25265,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Warning Message 1",
+            "scale": 1
+        },
+        {
+            "address": 25266,
+            "dataType": "UInt16",
+            "isSigned": false,
+            "name": "Warning Message 2",
             "scale": 1
         }
     ]

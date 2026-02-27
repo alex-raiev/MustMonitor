@@ -15,6 +15,15 @@ class DataViewModel : public QObject {
     Q_PROPERTY(double batteryTemperature READ batteryTemperature NOTIFY dataChanged)
     Q_PROPERTY(double loadPowerKw READ loadPowerKw NOTIFY dataChanged)
     Q_PROPERTY(double inverterPowerKva READ inverterPowerKva NOTIFY dataChanged)
+    Q_PROPERTY(int workState READ workState NOTIFY stateChanged)
+    Q_PROPERTY(int arrowFlag READ arrowFlag NOTIFY stateChanged)
+    Q_PROPERTY(int batteryChargingState READ batteryChargingState NOTIFY stateChanged)
+    Q_PROPERTY(int chargerWorkState READ chargerWorkState NOTIFY stateChanged)
+    Q_PROPERTY(int mpptState READ mpptState NOTIFY stateChanged)
+    Q_PROPERTY(int inverterRelayState READ inverterRelayState NOTIFY stateChanged)
+    Q_PROPERTY(int gridRelayState READ gridRelayState NOTIFY stateChanged)
+    Q_PROPERTY(int loadRelayState READ loadRelayState NOTIFY stateChanged)
+    Q_PROPERTY(int dcRelayState READ dcRelayState NOTIFY stateChanged)
     Q_PROPERTY(QString batterySocName READ batterySocName NOTIFY namesChanged)
     Q_PROPERTY(QString loadPowerPercentName READ loadPowerPercentName NOTIFY namesChanged)
     Q_PROPERTY(QString invertorVoltageName READ invertorVoltageName NOTIFY namesChanged)
@@ -42,6 +51,16 @@ public:
     double loadPowerKw() const { return m_loadPowerKw; }
     double inverterPowerKva() const { return m_inverterPowerKva; }
     
+    int workState() const { return m_workState; }
+    int arrowFlag() const { return m_arrowFlag; }
+    int batteryChargingState() const { return m_batteryChargingState; }
+    int chargerWorkState() const { return m_chargerWorkState; }
+    int mpptState() const { return m_mpptState; }
+    int inverterRelayState() const { return m_inverterRelayState; }
+    int gridRelayState() const { return m_gridRelayState; }
+    int loadRelayState() const { return m_loadRelayState; }
+    int dcRelayState() const { return m_dcRelayState; }
+    
     QString batterySocName() const { return m_batterySocName; }
     QString loadPowerPercentName() const { return m_loadPowerPercentName; }
     QString invertorVoltageName() const { return m_invertorVoltageName; }
@@ -59,6 +78,8 @@ public slots:
                     double invertorCurrent, double gridVoltage, double gridCurrent,
                     double gridFrequency, double invertorFrequency, double batteryTemperature,
                     double loadPowerKw, double inverterPowerKva);
+    void updateState(int workState, int arrowFlag, int batteryChargingState, int chargerWorkState,
+                    int mpptState, int inverterRelayState, int gridRelayState, int loadRelayState, int dcRelayState);
     void setRegisterNames(const QString& batterySoc, const QString& loadPowerPercent,
                          const QString& invertorVoltage, const QString& invertorCurrent,
                          const QString& gridVoltage, const QString& gridCurrent,
@@ -69,6 +90,7 @@ public slots:
 signals:
     void dataChanged();
     void namesChanged();
+    void stateChanged();
     
 private:
     double m_batterySoc = 0.0;
@@ -93,4 +115,13 @@ private:
     QString m_batteryTemperatureName;
     QString m_loadPowerKwName;
     QString m_inverterPowerKvaName;
+    int m_workState = 0;
+    int m_arrowFlag = 0;
+    int m_batteryChargingState = 0;
+    int m_chargerWorkState = 0;
+    int m_mpptState = 0;
+    int m_inverterRelayState = 0;
+    int m_gridRelayState = 0;
+    int m_loadRelayState = 0;
+    int m_dcRelayState = 0;
 };

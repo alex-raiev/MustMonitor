@@ -30,6 +30,7 @@ qt_add_qml_module(MustMonitorApp
     QML_FILES 
         Main.qml
         components/Dashboard.qml
+        components/PowerFlow.qml
         components/Charts.qml
         components/Logs.qml
         components/Settings.qml

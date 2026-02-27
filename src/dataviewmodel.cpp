@@ -44,3 +44,17 @@ void DataViewModel::setRegisterNames(const QString& batterySoc, const QString& l
     m_inverterPowerKvaName = inverterPowerKva;
     emit namesChanged();
 }
+
+void DataViewModel::updateState(int workState, int arrowFlag, int batteryChargingState, int chargerWorkState,
+                               int mpptState, int inverterRelayState, int gridRelayState, int loadRelayState, int dcRelayState) {
+    m_workState = workState;
+    m_arrowFlag = arrowFlag;
+    m_batteryChargingState = batteryChargingState;
+    m_chargerWorkState = chargerWorkState;
+    m_mpptState = mpptState;
+    m_inverterRelayState = inverterRelayState;
+    m_gridRelayState = gridRelayState;
+    m_loadRelayState = loadRelayState;
+    m_dcRelayState = dcRelayState;
+    emit stateChanged();
+}

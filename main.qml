@@ -13,6 +13,7 @@ ApplicationWindow {
         width: parent.width
         
         TabButton { text: "Dashboard" }
+        TabButton { text: "Power Flow" }
         TabButton { text: "Charts" }
         TabButton { text: "Logs" }
         TabButton { text: "Settings" }
@@ -26,6 +27,17 @@ ApplicationWindow {
         currentIndex: tabBar.currentIndex
 
         Dashboard {}
+        PowerFlow {
+            workState: dataViewModel.workState
+            arrowFlag: dataViewModel.arrowFlag
+            batteryChargingState: dataViewModel.batteryChargingState
+            chargerWorkState: dataViewModel.chargerWorkState
+            mpptState: dataViewModel.mpptState
+            inverterRelayState: dataViewModel.inverterRelayState
+            gridRelayState: dataViewModel.gridRelayState
+            loadRelayState: dataViewModel.loadRelayState
+            dcRelayState: dataViewModel.dcRelayState
+        }
         Charts {}
         Logs {}
         Item {

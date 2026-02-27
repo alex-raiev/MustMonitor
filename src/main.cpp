@@ -50,6 +50,9 @@ int main(int argc, char *argv[])
                                data.invertorCurrent, data.gridVoltage, data.gridCurrent,
                                data.gridFrequency, data.invertorFrequency, data.batteryTemperature,
                                data.loadPowerKw, data.inverterPowerKva);
+            viewModel.updateState(data.workState, data.arrowFlag, data.batteryChargingState,
+                                data.chargerWorkState, data.mpptState, data.inverterRelayState,
+                                data.gridRelayState, data.loadRelayState, data.dcRelayState);
         }
     });
     dataTimer.start(100);

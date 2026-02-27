@@ -25,6 +25,15 @@ struct ModbusData {
     double batteryTemperature;
     double loadPowerKw;
     double inverterPowerKva;
+    int workState;
+    int arrowFlag;
+    int batteryChargingState;
+    int chargerWorkState;
+    int mpptState;
+    int inverterRelayState;
+    int gridRelayState;
+    int loadRelayState;
+    int dcRelayState;
 };
 
 class ModbusClient : public QObject {
